@@ -39,7 +39,18 @@ button.addEventListener("click", function () {
   const allSquares = document.querySelectorAll(".square");
   for (j = 0; j < allSquares.length; j++) {
     allSquares[j].addEventListener("mouseenter", function () {
-      this.classList.add("square-hover");
+      this.style.backgroundColor = randomColor();
     });
   }
 });
+
+// Function for random color
+
+function randomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
